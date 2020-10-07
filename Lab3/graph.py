@@ -1,24 +1,18 @@
 import matplotlib
 import matplotlib.pyplot as plt
 
-#X = categorical({'den', 'denna', 'denne', 'det', 'han', 'hen', 'hon'});
-#y =             [0.5213,0.0096, 0.0017  ,0.1950,0.2846,0.0133    ,0.1313   ];
-#bar(X,y)
-#xlabel('\bf Pronoun')
-#ylabel('\bf Normalized counts')
-#set(gca,'YTick')#(0:0.1:1))
-##counts the occurrences of words starting with the same first letter
-#ax = gca;
-#ax.FontSize = 14;
+data = {"den":166554,"denna":2926,"denne":736,"det":66192,"han":88262,"hen":3051,"hon":29574,"total":357295}
+data2 = {"den":166554/357295,"denna":2926/357295,"denne":736/357295,"det":66192/357295,"han":88262/357295,"hen":3051/357295,"hon":29574/357295}
+#data2 = data.get("total")
+names = list(data2.keys())
+values = list(data2.values())
 
-data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
-names = list(data.keys())
-values = list(data.values())
-
-fig, ax = plt.plot()
+fig, ax = plt.subplots()
 ax.bar(names, values)
+plt.xlabel("Pronouns",weight='bold')
+plt.ylabel("Normalized Counts",weight='bold')
+#fig.ylabel("Gold")
+#fig.legend(loc='upper left')
 
-fig.suptitle('Categorical Plotting')
+#fig.suptitle('Categorical Plotting')
 fig.savefig('test.png')
-
-
